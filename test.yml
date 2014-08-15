@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  roles:
+    - franklinkim.sudo
+  vars:
+    sudo_users:
+      - { name: '%sudo', nopasswd: yes }

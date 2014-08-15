@@ -1,0 +1,5 @@
+# {{ansible_managed}}
+
+{% for item in sudo_users %}
+{{ item.name }} ALL=(ALL) {{"NOPASSWD: " if item.nopasswd else ""}}ALL
+{% endfor %}
