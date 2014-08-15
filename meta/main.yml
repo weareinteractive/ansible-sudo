@@ -2,7 +2,7 @@
 galaxy_info:
   author: franklin
   company: We Are Interactive
-  description: Congifures ssh
+  description: Installs and configures sudo
   min_ansible_version: 1.6
   license: MIT
   platforms:
