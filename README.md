@@ -1,7 +1,7 @@
 # Ansible Sudo Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-role-sudo.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-role-sudo)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-role-sudo.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-role-sudo)
+[![Build Status](https://travis-ci.org/weareinteractive/ansible-sudo.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-sudo)
+[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-sudo.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-sudo)
 
 > `sudo` is an [ansible](http://www.ansible.com) role which: 
 > 
@@ -25,7 +25,7 @@ $ arm install franklinkim.sudo
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-role-sudo.git
+$ git clone https://github.com/weareinteractive/ansible-sudo.git
 ```
 
 ## Variables
@@ -54,8 +54,8 @@ sudo_users: []
 ## Testing
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-role-sudo.git
-$ cd ansible-role-sudo
+$ git clone https://github.com/weareinteractive/ansible-sudo.git
+$ cd ansible-sudo
 $ vagrant up
 ```
 
