@@ -30,6 +30,8 @@ $ git clone https://github.com/weareinteractive/ansible-sudo.git
 
 ## Variables
 
+Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
+
 ```
 # sudo_users:
 #  - { name: '%foo', nopasswd: yes }
