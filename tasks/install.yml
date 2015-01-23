@@ -1,6 +1,6 @@
 ---
 
-- name: Installing sudo related packages
+- name: Installing packages
   apt: >
     pkg={{ item }}
     state=present
@@ -12,7 +12,7 @@
     - sudo
     - install
 
-- name: Installing sudo related packages
+- name: Installing packages
   yum: >
     pkg={{ item }}
     state=present
