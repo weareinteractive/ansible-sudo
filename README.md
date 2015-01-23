@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/weareinteractive/ansible-sudo.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-sudo)
 [![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-sudo.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-sudo)
 
-> `sudo` is an [ansible](http://www.ansible.com) role which: 
-> 
+> `sudo` is an [ansible](http://www.ansible.com) role which:
+>
 > * installs sudo
 > * configures sudo
 
@@ -36,6 +36,15 @@ Here is a list of all the default variables for this role, which are also availa
 # sudo_users:
 #  - { name: '%foo', nopasswd: yes }
 #  - { name: 'bar', nopasswd: no }
+#  - name: '%foo'
+#    nopasswd: yes
+#    commands: '/bin/ls'
+#  - name: 'bar'
+#    nopasswd: no
+#    commands: '/bin/nano'
+#  - name: '%foo'
+#    nopasswd: yes
+#    commands: '/bin/nano /etc/hosts'
 
 # list of username or %groupname
 sudo_users: []
@@ -45,12 +54,21 @@ sudo_users: []
 
 ```
 - host: all
-  roles: 
+  roles:
     - franklinkim.sudo
   vars:
     sudo_users:
       - { name: 'foo', nopasswd: no }
       - { name: '%sudo', nopasswd: yes }
+      - name: '%foo'
+        nopasswd: yes
+        commands: '/bin/ls'
+      - name: 'bar'
+        nopasswd: no
+        commands: '/bin/nano'
+      - name: '%foo'
+        nopasswd: yes
+        commands: '/bin/nano /etc/hosts'
 ```
 
 ## Testing

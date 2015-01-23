@@ -5,6 +5,15 @@
 # sudo_users:
 #  - { name: '%foo', nopasswd: yes }
 #  - { name: 'bar', nopasswd: no }
+#  - name: '%foo'
+#    nopasswd: yes
+#    commands: '/bin/ls'
+#  - name: 'bar'
+#    nopasswd: no
+#    commands: '/bin/nano'
+#  - name: '%foo'
+#    nopasswd: yes
+#    commands: '/bin/nano /etc/hosts'
 
 # list of username or %groupname
 sudo_users: []
