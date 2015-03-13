@@ -83,7 +83,7 @@ default_requiretty: false
   vars:
     default_requiretty: no
     sudo_users:
-      - { name: 'foo', nopasswd: no, norequiretty: yes }
+      - { name: 'foo', nopasswd: no, requiretty: yes }
       - { name: '%sudo', nopasswd: yes }
       - name: '%foo'
         nopasswd: yes
@@ -96,7 +96,7 @@ default_requiretty: false
         commands: '/bin/nano /etc/hosts'
       - name: 'baz'
         nopasswd: yes
-        norequiretty: yes
+        requiretty: yes
 ```
 
 ## Testing
