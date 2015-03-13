@@ -4,6 +4,6 @@
   roles:
     - franklinkim.sudo
   vars:
-    default_requiretty: false
+    default_requiretty: yes
     sudo_users:
-      - { name: '%sudo', nopasswd: yes, norequiretty: yes }
+      - { name: '%sudo', nopasswd: yes, requiretty: no }
