@@ -34,7 +34,7 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```
 # sudo_users:
-#  - { name: '%foo', nopasswd: yes, norequiretty: yes }
+#  - { name: '%foo', nopasswd: yes, requiretty: no }
 #  - { name: 'bar', nopasswd: no }
 #  - name: '%foo'
 #    nopasswd: yes
@@ -47,7 +47,7 @@ Here is a list of all the default variables for this role, which are also availa
 #    commands: '/bin/nano /etc/hosts'
 #  - name: 'baz'
 #    nopasswd: yes
-#    norequiretty: yes
+#    requiretty: no
 
 
 # list of username or %groupname
