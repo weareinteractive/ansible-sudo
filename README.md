@@ -34,7 +34,7 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```
 # sudo_users:
-#  - { name: '%foo', nopasswd: yes }
+#  - { name: '%foo', nopasswd: yes, norequiretty: yes }
 #  - { name: 'bar', nopasswd: no }
 #  - name: '%foo'
 #    nopasswd: yes
@@ -45,10 +45,34 @@ Here is a list of all the default variables for this role, which are also availa
 #  - name: '%foo'
 #    nopasswd: yes
 #    commands: '/bin/nano /etc/hosts'
+#  - name: 'baz'
+#    nopasswd: yes
+#    norequiretty: yes
+
 
 # list of username or %groupname
 sudo_users: []
+
+# Default require tty option 
+# It should be overriden with vars in your playbook based on the actual distribution
+#
+# - hosts: all
+#    tasks:
+#    - include_vars: "os_{{ ansible_distribution }}.yml"
+#
+# It can also be passed explicitely to the role
+#
+# roles:
+#  - role: franklinkim.sudo
+#    default_requiretty: true
+#    sudo_users:
+#      - name: '%sudo'
+#        nopasswd: yes
+#        requiretty: no
+#
+default_requiretty: false
 ```
+
 
 ## Example playbook
 
@@ -57,8 +81,9 @@ sudo_users: []
   roles:
     - franklinkim.sudo
   vars:
+    default_requiretty: no
     sudo_users:
-      - { name: 'foo', nopasswd: no }
+      - { name: 'foo', nopasswd: no, norequiretty: yes }
       - { name: '%sudo', nopasswd: yes }
       - name: '%foo'
         nopasswd: yes
@@ -69,6 +94,9 @@ sudo_users: []
       - name: '%foo'
         nopasswd: yes
         commands: '/bin/nano /etc/hosts'
+      - name: 'baz'
+        nopasswd: yes
+        norequiretty: yes
 ```
 
 ## Testing
