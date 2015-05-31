@@ -23,3 +23,15 @@
     - system
     - sudo
     - install
+
+- name: Installing packages
+  pacman: >
+    pkg={{ item }}
+    state=present
+  when: ansible_pkg_mgr == 'pacman'
+  with_items:
+    - sudo
+  tags:
+    - system
+    - sudo
+    - install
