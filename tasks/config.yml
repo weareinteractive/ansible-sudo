@@ -1,14 +1,12 @@
 ---
 
 - name: Adding users
-  template: >
-    src=etc-sudoers-d-ansible.j2
-    dest=/etc/sudoers.d/ansible
-    validate='visudo -cf %s'
-    owner=root
-    group=root
-    mode=0440
-  tags:
-    - system
-    - sudo
-    - config
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    validate: "visudo -cf %s"
+    owner: root
+    group: root
+    mode: "0644"
+  with_items:
+    - "etc/sudoers.d/ansible"

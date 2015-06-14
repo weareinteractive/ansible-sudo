@@ -1,7 +1,9 @@
 # Ansible Sudo Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-sudo.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-sudo)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-sudo.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-sudo)
+[![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sudo.svg)](https://travis-ci.org/weareinteractive/ansible-sudo)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.sudo-blue.svg)](https://galaxy.ansible.com/list#/roles/1380)
+[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
+[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
 
 > `sudo` is an [ansible](http://www.ansible.com) role which:
 >
@@ -16,16 +18,16 @@ Using `ansible-galaxy`:
 $ ansible-galaxy install franklinkim.sudo
 ```
 
-Using `arm` ([Ansible Role Manager](https://github.com/mirskytech/ansible-role-manager/)):
+Using `requirements.yml`:
 
 ```
-$ arm install franklinkim.sudo
+- src: franklinkim.sudo
 ```
 
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-sudo.git
+$ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sudo
 ```
 
 ## Variables
@@ -54,6 +56,7 @@ sudo_users: []
 
 ```
 - host: all
+  sudo: yes
   roles:
     - franklinkim.sudo
   vars:
