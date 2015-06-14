@@ -35,9 +35,15 @@ $ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sud
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
 # sudo_users:
-#  - { name: '%foo', nopasswd: yes, requiretty: no }
-#  - { name: 'bar', nopasswd: no }
+#  - name: '%foo'
+#    nopasswd: yes
+#    requiretty: no
+#  - name: 'bar'
+#    nopasswd: no
 #  - name: '%foo'
 #    nopasswd: yes
 #    commands: '/bin/ls'
@@ -49,30 +55,12 @@ Here is a list of all the default variables for this role, which are also availa
 #    commands: '/bin/nano /etc/hosts'
 #  - name: 'baz'
 #    nopasswd: yes
-#    requiretty: no
+#    requiretty: yes
 
-
+# package name (version)
+sudo_package: sudo
 # list of username or %groupname
 sudo_users: []
-
-# Default require tty option 
-# It should be overriden with vars in your playbook based on the actual distribution
-#
-# - hosts: all
-#    tasks:
-#    - include_vars: "os_{{ ansible_distribution }}.yml"
-#
-# It can also be passed explicitely to the role
-#
-# roles:
-#  - role: franklinkim.sudo
-#    default_requiretty: true
-#    sudo_users:
-#      - name: '%sudo'
-#        nopasswd: yes
-#        requiretty: no
-#
-default_requiretty: false
 ```
 
 
@@ -84,10 +72,12 @@ default_requiretty: false
   roles:
     - franklinkim.sudo
   vars:
-    default_requiretty: no
     sudo_users:
-      - { name: 'foo', nopasswd: no, requiretty: yes }
-      - { name: '%sudo', nopasswd: yes }
+      - name: 'foo'
+        nopasswd: no
+        requiretty: yes
+      - name: '%sudo'
+        nopasswd: yes
       - name: '%foo'
         nopasswd: yes
         commands: '/bin/ls'
