@@ -15,5 +15,7 @@
 #    nopasswd: yes
 #    commands: '/bin/nano /etc/hosts'
 
+# package name (version)
+sudo_package: sudo
 # list of username or %groupname
 sudo_users: []

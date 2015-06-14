@@ -3,7 +3,7 @@ galaxy_info:
   author: franklin
   company: We Are Interactive
   description: Installs and configures sudo
-  min_ansible_version: 1.6
+  min_ansible_version: 1.9
   license: MIT
   #
   # Below are all platforms currently available. Just uncomment

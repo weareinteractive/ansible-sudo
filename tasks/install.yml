@@ -1,25 +1,4 @@
 ---
 
-- name: Installing packages
-  apt: >
-    pkg={{ item }}
-    state=present
-  when: ansible_pkg_mgr == 'apt'
-  with_items:
-    - sudo
-  tags:
-    - system
-    - sudo
-    - install
-
-- name: Installing packages
-  yum: >
-    pkg={{ item }}
-    state=present
-  when: ansible_pkg_mgr == 'yum'
-  with_items:
-    - sudo
-  tags:
-    - system
-    - sudo
-    - install
+- name: Installing package
+  action: "{{ ansible_pkg_mgr }} pkg={{ sudo_package }} state=present"

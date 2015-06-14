@@ -1,4 +1,15 @@
 ---
 
 - include: install.yml
+  tags:
+    - system
+    - sudo
+    - install
+    - sudo-install
+
 - include: config.yml
+  tags:
+    - system
+    - sudo
+    - config
+    - sudo-config
