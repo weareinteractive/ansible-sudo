@@ -35,9 +35,15 @@ $ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sud
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
 # sudo_users:
-#  - { name: '%foo', nopasswd: yes }
-#  - { name: 'bar', nopasswd: no }
+#  - name: '%foo'
+#    nopasswd: yes
+#    requiretty: no
+#  - name: 'bar'
+#    nopasswd: no
 #  - name: '%foo'
 #    nopasswd: yes
 #    commands: '/bin/ls'
@@ -47,10 +53,16 @@ Here is a list of all the default variables for this role, which are also availa
 #  - name: '%foo'
 #    nopasswd: yes
 #    commands: '/bin/nano /etc/hosts'
+#  - name: 'baz'
+#    nopasswd: yes
+#    requiretty: yes
 
+# package name (version)
+sudo_package: sudo
 # list of username or %groupname
 sudo_users: []
 ```
+
 
 ## Example playbook
 
@@ -61,8 +73,11 @@ sudo_users: []
     - franklinkim.sudo
   vars:
     sudo_users:
-      - { name: 'foo', nopasswd: no }
-      - { name: '%sudo', nopasswd: yes }
+      - name: 'foo'
+        nopasswd: no
+        requiretty: yes
+      - name: '%sudo'
+        nopasswd: yes
       - name: '%foo'
         nopasswd: yes
         commands: '/bin/ls'
@@ -72,6 +87,9 @@ sudo_users: []
       - name: '%foo'
         nopasswd: yes
         commands: '/bin/nano /etc/hosts'
+      - name: 'baz'
+        nopasswd: yes
+        requiretty: yes
 ```
 
 ## Testing

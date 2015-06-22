@@ -3,8 +3,11 @@
 # http://www.ansibleworks.com/docs/playbooks_variables.html#id26
 #
 # sudo_users:
-#  - { name: '%foo', nopasswd: yes }
-#  - { name: 'bar', nopasswd: no }
+#  - name: '%foo'
+#    nopasswd: yes
+#    requiretty: no
+#  - name: 'bar'
+#    nopasswd: no
 #  - name: '%foo'
 #    nopasswd: yes
 #    commands: '/bin/ls'
@@ -14,6 +17,9 @@
 #  - name: '%foo'
 #    nopasswd: yes
 #    commands: '/bin/nano /etc/hosts'
+#  - name: 'baz'
+#    nopasswd: yes
+#    requiretty: yes
 
 # package name (version)
 sudo_package: sudo

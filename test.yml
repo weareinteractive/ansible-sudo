@@ -6,4 +6,6 @@
     - franklinkim.sudo
   vars:
     sudo_users:
-      - { name: '%sudo', nopasswd: yes }
+      - name: '%sudo'
+        nopasswd: yes
+        requiretty: no
