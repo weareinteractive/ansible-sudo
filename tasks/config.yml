@@ -7,6 +7,6 @@
     validate: "visudo -cf %s"
     owner: root
     group: root
-    mode: "0644"
+    mode: "0440"
   with_items:
     - "etc/sudoers.d/ansible"
