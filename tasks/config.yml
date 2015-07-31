@@ -1,6 +1,6 @@
 ---
 
-- name: Adding users
+- name: Creating sudoers configuration under /etc/sudoers.d
   template:
     src: "{{ item }}.j2"
     dest: "/{{ item }}"
