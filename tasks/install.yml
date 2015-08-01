@@ -4,7 +4,7 @@
   apt:
     name: '{{ item }}'
     state: 'present'
-  when: ansible_pkg_mgr == 'yum'
+  when: ansible_pkg_mgr == 'apt'
   with_items: sudo_package
 
 - name: Installing package on yum/rpm based systems
