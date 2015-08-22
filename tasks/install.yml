@@ -1,4 +1,15 @@
 ---
 
-- name: Installing package
-  action: "{{ ansible_pkg_mgr }} pkg={{ sudo_package }} state=present"
+- name: Installing package on apt based systems
+  apt:
+    name: '{{ item }}'
+    state: 'present'
+  when: ansible_pkg_mgr == 'apt'
+  with_items: sudo_package
+
+- name: Installing package on yum/rpm based systems
+  yum:
+    name: '{{ item }}'
+    state: 'present'
+  when: ansible_os_family == "RedHat"
+  with_items: sudo_package

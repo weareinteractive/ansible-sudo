@@ -16,7 +16,7 @@
 #    commands: '/bin/nano'
 #  - name: '%foo'
 #    nopasswd: yes
-#    commands: '/bin/nano /etc/hosts'
+#    commands: 'sudoedit /etc/hosts'
 #  - name: 'baz'
 #    nopasswd: yes
 #    requiretty: yes
