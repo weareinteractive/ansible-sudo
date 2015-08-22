@@ -52,7 +52,7 @@ Here is a list of all the default variables for this role, which are also availa
 #    commands: '/bin/nano'
 #  - name: '%foo'
 #    nopasswd: yes
-#    commands: '/bin/nano /etc/hosts'
+#    commands: 'sudoedit /etc/hosts'
 #  - name: 'baz'
 #    nopasswd: yes
 #    requiretty: yes
