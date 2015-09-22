@@ -52,9 +52,11 @@ Here is a list of all the default variables for this role, which are also availa
 #    commands: '/bin/nano'
 #  - name: '%foo'
 #    nopasswd: yes
+#    operator_list: ALL
 #    commands: 'sudoedit /etc/hosts'
 #  - name: 'baz'
 #    nopasswd: yes
+#    operator_list: mega_user, small_user
 #    requiretty: yes
 
 # package name (version)
@@ -68,7 +70,7 @@ sudo_users: []
 
 ```
 - host: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.sudo
   vars:
@@ -86,9 +88,11 @@ sudo_users: []
         commands: '/bin/nano'
       - name: '%foo'
         nopasswd: yes
-        commands: '/bin/nano /etc/hosts'
+        operator_list: ALL
+        commands: 'sudoedit /etc/hosts'
       - name: 'baz'
         nopasswd: yes
+        operator_list: mega_user, small_user
         requiretty: yes
 ```
 
