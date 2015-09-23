@@ -8,4 +8,5 @@
     sudo_users:
       - name: '%sudo'
         nopasswd: yes
+        operator_list: ALL
         requiretty: no
