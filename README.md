@@ -35,34 +35,24 @@ $ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sud
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
+# sudo_defaults:
+#  - defaults: env_reset
+#  - name: user1
+#    defaults: requiretty
 # sudo_users:
-#  - name: '%foo'
-#    nopasswd: yes
-#    requiretty: no
+#  - name: '%group1'
 #  - name: 'bar'
-#    nopasswd: no
-#  - name: '%foo'
 #    nopasswd: yes
+#  - name: '%group2'
 #    commands: '/bin/ls'
-#  - name: 'bar'
-#    nopasswd: no
-#    commands: '/bin/nano'
-#  - name: '%foo'
-#    nopasswd: yes
-#    operator_list: ALL
-#    commands: 'sudoedit /etc/hosts'
-#  - name: 'baz'
-#    nopasswd: yes
-#    operator_list: mega_user, small_user
-#    requiretty: yes
+#
 
 # package name (version)
 sudo_package: sudo
 # list of username or %groupname
 sudo_users: []
+# list of username or %groupname and their defaults
+sudo_defaults: []
 ```
 
 
@@ -70,30 +60,27 @@ sudo_users: []
 
 ```
 - host: all
-  become: yes
+  sudo: yes
   roles:
     - franklinkim.sudo
   vars:
+    sudo_defaults:
+      - defaults: env_reset
+      - defaults: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - name: 'user1'
+        defaults: 'requiretty'
+      - name: '%group1'
+        defaults: '!requiretty'
     sudo_users:
-      - name: 'foo'
-        nopasswd: no
-        requiretty: yes
-      - name: '%sudo'
+      - name: 'user1'
+      - name: 'user2'
         nopasswd: yes
-      - name: '%foo'
-        nopasswd: yes
+      - name: '%group1'
+        hosts: 127.0.0.1
+      - name: '%group2'
         commands: '/bin/ls'
-      - name: 'bar'
-        nopasswd: no
-        commands: '/bin/nano'
-      - name: '%foo'
-        nopasswd: yes
-        operator_list: ALL
-        commands: 'sudoedit /etc/hosts'
-      - name: 'baz'
-        nopasswd: yes
-        operator_list: mega_user, small_user
-        requiretty: yes
+      - name: '%group3'
+        users: 'user1,user2'
 ```
 
 ## Testing
