@@ -1,11 +1,11 @@
-# Ansible Sudo Role
+# Ansible franklinkim.sudo role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sudo.svg)](https://travis-ci.org/weareinteractive/ansible-sudo)
 [![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.sudo-blue.svg)](https://galaxy.ansible.com/list#/roles/1380)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
 
-> `sudo` is an [ansible](http://www.ansible.com) role which:
+> `franklinkim.sudo` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs sudo
 > * configures sudo
@@ -14,27 +14,32 @@
 
 Using `ansible-galaxy`:
 
-```
+```shell
 $ ansible-galaxy install franklinkim.sudo
 ```
 
 Using `requirements.yml`:
 
-```
+```yaml
 - src: franklinkim.sudo
 ```
 
 Using `git`:
 
-```
+```shell
 $ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sudo
 ```
+
+## Dependencies
+
+* Ansible >= 1.9
 
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
-```
+```yaml
+---
 # sudo_defaults:
 #  - defaults: env_reset
 #  - name: user1
@@ -53,13 +58,18 @@ sudo_package: sudo
 sudo_users: []
 # list of username or %groupname and their defaults
 sudo_defaults: []
-```
-
-
-## Example playbook
 
 ```
-- host: all
+
+
+## Usage
+
+This is an example playbook:
+
+```yaml
+---
+
+- hosts: all
   sudo: yes
   roles:
     - franklinkim.sudo
@@ -81,11 +91,12 @@ sudo_defaults: []
         commands: '/bin/ls'
       - name: '%group3'
         users: 'user1,user2'
+
 ```
 
 ## Testing
 
-```
+```shell
 $ git clone https://github.com/weareinteractive/ansible-sudo.git
 $ cd ansible-sudo
 $ vagrant up
@@ -99,6 +110,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+*Note: To update the `README.md` file please install and run `ansible-role`:*
+
+```shell
+$ gem install ansible-role
+$ ansible-role docgen
+```
 
 ## License
 Copyright (c) We Are Interactive under the MIT license.
