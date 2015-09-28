@@ -1,27 +1,19 @@
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
+# sudo_defaults:
+#  - defaults: env_reset
+#  - name: user1
+#    defaults: requiretty
 # sudo_users:
-#  - name: '%foo'
-#    nopasswd: yes
-#    requiretty: no
+#  - name: '%group1'
 #  - name: 'bar'
-#    nopasswd: no
-#  - name: '%foo'
 #    nopasswd: yes
+#  - name: '%group2'
 #    commands: '/bin/ls'
-#  - name: 'bar'
-#    nopasswd: no
-#    commands: '/bin/nano'
-#  - name: '%foo'
-#    nopasswd: yes
-#    commands: 'sudoedit /etc/hosts'
-#  - name: 'baz'
-#    nopasswd: yes
-#    requiretty: yes
+#
 
 # package name (version)
 sudo_package: sudo
 # list of username or %groupname
 sudo_users: []
+# list of username or %groupname and their defaults
+sudo_defaults: []

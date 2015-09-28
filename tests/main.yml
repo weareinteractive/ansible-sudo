@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  sudo: yes
+  roles:
+    - franklinkim.sudo
+  vars:
+    sudo_defaults:
+      - defaults: env_reset
+      - defaults: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - name: 'user1'
+        defaults: 'requiretty'
+      - name: '%group1'
+        defaults: '!requiretty'
+    sudo_users:
+      - name: 'user1'
+      - name: 'user2'
+        nopasswd: yes
+      - name: '%group1'
+        hosts: 127.0.0.1
+      - name: '%group2'
+        commands: '/bin/ls'
+      - name: '%group3'
+        users: 'user1,user2'

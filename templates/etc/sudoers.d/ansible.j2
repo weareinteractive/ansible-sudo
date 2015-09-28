@@ -1,7 +1,10 @@
 # {{ ansible_managed }}
 
-{% for item in sudo_users %}
-{{ item.name }} ALL={{ "NOPASSWD: " if (item.nopasswd is defined and item.nopasswd) else "" }} {{ item.commands if item.commands is defined else "ALL" }}
-{{ "Defaults:" ~ item.name ~ " requiretty"  if item.requiretty is defined and     item.requiretty else "" }}
-{{ "Defaults:" ~ item.name ~ " !requiretty" if item.requiretty is defined and not item.requiretty else "" }}
+{% for item in sudo_defaults %}
+Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.defaults }}
 {% endfor %}
+
+{% for item in sudo_users %}
+{{ item.name }} {{ item.hosts | default('ALL') }}={{ "(" ~ item.users ~ ")" if item.users is defined else "" }} {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} {{ item.commands | default('ALL') }}
+{% endfor %}
+
