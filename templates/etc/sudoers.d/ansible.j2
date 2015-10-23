@@ -5,6 +5,6 @@ Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.defaults }
 {% endfor %}
 
 {% for item in sudo_users %}
-{{ item.name }} {{ item.hosts | default('ALL') }}={{ "(" ~ item.users ~ ")" if item.users is defined else "" }} {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} {{ item.commands | default('ALL') }}
+{{ item.name }} {{ item.hosts | default('ALL') }}={{ "(" ~ item.users | default('ALL') ~ ")" }} {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} {{ item.commands | default('ALL') }}
 {% endfor %}
 
