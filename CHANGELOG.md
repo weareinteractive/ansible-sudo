@@ -1,5 +1,16 @@
 <a name="1.6.0"></a>
-## 1.6.0 (2015-10-26)
+## 1.6.0 (2017-01-16)
+
+
+#### Features
+
+*   add groups parameters ([043e984d](https://github.com/weareinteractive/ansible-sudo/commit/043e984d819fcf5e0efb5dbcfe1fd56320c5599c))
+*   add changelog ([44c1ba22](https://github.com/weareinteractive/ansible-sudo/commit/44c1ba221d9bfc237909358852f4d7506f40da25))
+
+
+
+<a name="1.5.0"></a>
+## 1.5.0 (2015-10-26)
 
 
 #### Breaking Changes
