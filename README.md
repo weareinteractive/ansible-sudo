@@ -1,12 +1,9 @@
 # Ansible franklinkim.sudo role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sudo.svg)](https://travis-ci.org/weareinteractive/ansible-sudo)
-[![Ansible Role](https://img.shields.io/ansible/role/1380.svg)](https://galaxy.ansible.com/list#/roles/1380)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.sudo-blue.svg)](https://galaxy.ansible.com/list#/roles/1380)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
-[![Github Releases](https://img.shields.io/github/downloads/weareinteractive/ansible-sudo/latest/total.svg)]()
-[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
-
-[![GitHub stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg?style=social&label=Star)](https://github.com/weareinteractive/ansible-sudo)
+[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
 
 > `franklinkim.sudo` is an [Ansible](http://www.ansible.com) role which:
 >
@@ -73,7 +70,7 @@ This is an example playbook:
 ---
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.sudo
   vars:
@@ -94,23 +91,25 @@ This is an example playbook:
         commands: '/bin/ls'
       - name: '%group3'
         users: 'user1,user2'
+        groups: 'group1,group2'
 
 ```
+
 
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-sudo.git
 $ cd ansible-sudo
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your [changes](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines) (`git commit -am 'feat: add new feature'`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
