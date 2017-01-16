@@ -1,7 +1,7 @@
 ---
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.sudo
   vars:
@@ -22,3 +22,4 @@
         commands: '/bin/ls'
       - name: '%group3'
         users: 'user1,user2'
+        groups: 'group1,group2'
