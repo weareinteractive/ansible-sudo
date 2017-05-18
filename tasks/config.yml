@@ -2,11 +2,9 @@
 
 - name: Creating sudoers configuration under /etc/sudoers.d
   template:
-    src: "{{ item }}.j2"
-    dest: "/{{ item }}"
+    src: "etc/sudoers.d/ansible.j2"
+    dest: "/etc/sudoers.d/{{ sudo_default_file }}"
     validate: "visudo -cf %s"
     owner: root
     group: root
     mode: "0440"
-  with_items:
-    - "etc/sudoers.d/ansible"
