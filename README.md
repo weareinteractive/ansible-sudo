@@ -58,6 +58,8 @@ sudo_package: sudo
 sudo_users: []
 # list of username or %groupname and their defaults
 sudo_defaults: []
+# default sudoers file
+sudo_sudoers_file: ansible
 
 ```
 
