@@ -1,3 +1,14 @@
+<a name="1.7.0"></a>
+## 1.7.0 (2017-05-24)
+
+
+#### Features
+
+*   update to ansible min version 2.0 ([d78f975f](https://github.com/weareinteractive/ansible-sudo/commit/d78f975ffe44be933c3f85cf12cc3bf5a1b5dce6))
+*   add sudoers file variable ([7b1497a6](https://github.com/weareinteractive/ansible-sudo/commit/7b1497a6a1aeee4d32e37d8e5c683fce39cd833a))
+
+
+
 <a name="1.6.0"></a>
 ## 1.6.0 (2017-01-16)
 
