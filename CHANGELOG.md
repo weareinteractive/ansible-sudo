@@ -1,3 +1,13 @@
+<a name="1.7.1"></a>
+### 1.7.1 (2017-06-27)
+
+
+#### Features
+
+*   update apt caches on install ([0c5e4ef9](https://github.com/weareinteractive/ansible-sudo/commit/0c5e4ef9ee0f0c95f633695684b1839e474405c5))
+
+
+
 <a name="1.7.0"></a>
 ## 1.7.0 (2017-05-24)
 
