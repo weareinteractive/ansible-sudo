@@ -6,5 +6,5 @@
     dest: "/etc/sudoers.d/{{ sudo_sudoers_file }}"
     validate: "visudo -cf %s"
     owner: root
-    group: root
+    group: "{{ sudo_sudoers_group }}"
     mode: "0440"
