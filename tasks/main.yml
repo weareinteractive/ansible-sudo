@@ -1,5 +1,12 @@
 ---
 
+- include: vars.yml
+  tags:
+    - system
+    - sudo
+    - vars
+    - sudo-vars
+
 - include: install.yml
   tags:
     - system
