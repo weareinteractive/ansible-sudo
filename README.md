@@ -32,7 +32,7 @@ $ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sud
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.4
 
 ## Variables
 
