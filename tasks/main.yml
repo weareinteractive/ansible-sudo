@@ -1,13 +1,20 @@
 ---
 
-- include: install.yml
+- import_tasks: vars.yml
+  tags:
+    - system
+    - sudo
+    - vars
+    - sudo-vars
+
+- import_tasks: install.yml
   tags:
     - system
     - sudo
     - install
     - sudo-install
 
-- include: config.yml
+- import_tasks: config.yml
   tags:
     - system
     - sudo

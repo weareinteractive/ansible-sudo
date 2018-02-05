@@ -1,3 +1,14 @@
+<a name="1.8.0"></a>
+## 1.8.0 (2018-02-05)
+
+
+#### Features
+
+*   adopt code for ansible 2.4 ([53651d30](https://github.com/weareinteractive/ansible-sudo/commit/53651d30b7466ec2bab11abc45344bd6d1af30e2))
+*   add openbsd support ([3c2a7f67](https://github.com/weareinteractive/ansible-sudo/commit/3c2a7f676f03a041b5bcf433f383fccce2945e79))
+
+
+
 <a name="1.7.1"></a>
 ### 1.7.1 (2017-06-27)
 
