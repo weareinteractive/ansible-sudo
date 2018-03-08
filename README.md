@@ -60,8 +60,8 @@ sudo_users: []
 sudo_defaults: []
 # default sudoers file
 sudo_sudoers_file: ansible
-# Delete other files in /etc/sudoers.d/
-purge_other_sudoers_files:
+# delete other files in /etc/sudoers.d/
+purge_other_sudoers_files: no
 
 ```
 
@@ -96,6 +96,7 @@ This is an example playbook:
       - name: '%group3'
         users: 'user1,user2'
         groups: 'group1,group2'
+    purge_other_sudoers_files: no
 
 ```
 
