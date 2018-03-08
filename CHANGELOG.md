@@ -1,3 +1,13 @@
+<a name="1.9.0"></a>
+## 1.9.0 (2018-03-08)
+
+
+#### Features
+
+*   optionally purge other sudoers files ([969e43a6](https://github.com/weareinteractive/ansible-sudo/commit/969e43a6ff6b8a0934bb7932fd1547e389f1ffc9))
+
+
+
 <a name="1.8.0"></a>
 ## 1.8.0 (2018-02-05)
 
