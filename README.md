@@ -60,6 +60,8 @@ sudo_users: []
 sudo_defaults: []
 # default sudoers file
 sudo_sudoers_file: ansible
+# Delete other files in /etc/sudoers.d/
+purge_other_sudoers_files:
 
 ```
 
