@@ -9,10 +9,10 @@
     group: "{{ sudo_sudoers_group }}"
     mode: "0440"
 
-- name: Check files in /etc/sudoers.d
+- name: List files in /etc/sudoers.d
   shell: ls -1 /etc/sudoers.d
   register: sudoers_contents
-  changed_when: False
+  changed_when: false
   when: purge_other_sudoers_files
 
 - name: Remove unmanaged /etc/sudoers.d/ files

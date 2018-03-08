@@ -23,3 +23,4 @@
       - name: '%group3'
         users: 'user1,user2'
         groups: 'group1,group2'
+    purge_other_sudoers_files: no
