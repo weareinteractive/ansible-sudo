@@ -1,6 +1,6 @@
 ---
 
-- name: Creating sudoers configuration under /etc/sudoers.d
+- name: "Creating sudoers configuration in /etc/sudoers.d/{{ sudo_sudoers_file }}"
   template:
     src: "etc/sudoers.d/ansible.j2"
     dest: "/etc/sudoers.d/{{ sudo_sudoers_file }}"
