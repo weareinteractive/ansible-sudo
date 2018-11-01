@@ -1,3 +1,13 @@
+<a name="1.10.0"></a>
+## 1.10.0 (2018-11-01)
+
+
+#### Features
+
+*   add file name to config task name ([b75c2b6d](https://github.com/weareinteractive/ansible-sudo/commit/b75c2b6d3129804fa6af14b5da7af11ae3acc4b7))
+
+
+
 <a name="1.9.0"></a>
 ## 1.9.0 (2018-03-08)
 
