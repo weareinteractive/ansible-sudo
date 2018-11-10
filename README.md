@@ -1,33 +1,37 @@
-# Ansible franklinkim.sudo role
+# Ansible weareinteractive.sudo role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sudo.svg)](https://travis-ci.org/weareinteractive/ansible-sudo)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.sudo-blue.svg)](https://galaxy.ansible.com/list#/roles/1380)
+[![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.sudo-blue.svg)](https://galaxy.ansible.com/weareinteractive/users)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
 
-> `franklinkim.sudo` is an [Ansible](http://www.ansible.com) role which:
+> `weareinteractive.sudo` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs sudo
 > * configures sudo
+
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sudo` to `weareinteractive.sudo`!
 
 ## Installation
 
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install franklinkim.sudo
+$ ansible-galaxy install weareinteractive.sudo
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: franklinkim.sudo
+- src: weareinteractive.sudo
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-sudo.git franklinkim.sudo
+$ git clone https://github.com/weareinteractive/ansible-sudo.git weareinteractive.sudo
 ```
 
 ## Dependencies
@@ -76,7 +80,7 @@ This is an example playbook:
 - hosts: all
   become: yes
   roles:
-    - franklinkim.sudo
+    - weareinteractive.sudo
   vars:
     sudo_defaults:
       - defaults: env_reset
