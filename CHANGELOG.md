@@ -1,3 +1,13 @@
+<a name="1.12.0"></a>
+## 1.12.0 (2018-11-10)
+
+
+#### Features
+
+*   add multiple commands ([f6bb707c](https://github.com/weareinteractive/ansible-sudo/commit/f6bb707c07f56b7f3e2b995553ad03dc6a6c3612))
+
+
+
 <a name="1.11.0"></a>
 ## 1.11.0 (2018-11-10)
 
