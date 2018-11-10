@@ -10,6 +10,10 @@
 > * installs sudo
 > * configures sudo
 
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sudo` to `weareinteractive.sudo`!
+
 ## Installation
 
 Using `ansible-galaxy`:
