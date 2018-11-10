@@ -9,6 +9,10 @@
 #    nopasswd: yes
 #  - name: '%group2'
 #    commands: '/bin/ls'
+#  - name: '%group3'
+#    commands:
+#      - /bin/ls
+#      - /bin/df
 #
 
 # package name (version)
