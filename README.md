@@ -54,6 +54,10 @@ Here is a list of all the default variables for this role, which are also availa
 #    nopasswd: yes
 #  - name: '%group2'
 #    commands: '/bin/ls'
+#  - name: '%group3'
+#    commands:
+#      - /bin/ls
+#      - /bin/df
 #
 
 # package name (version)
@@ -98,6 +102,11 @@ This is an example playbook:
       - name: '%group2'
         commands: '/bin/ls'
       - name: '%group3'
+        commands:
+          - '/usr/bin/ls'
+          - '/usr/bin/df'
+          - '/usr/bin/mailq'
+      - name: '%group4'
         users: 'user1,user2'
         groups: 'group1,group2'
     purge_other_sudoers_files: no
