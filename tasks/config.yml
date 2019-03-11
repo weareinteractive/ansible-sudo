@@ -10,16 +10,25 @@
     mode: "0440"
 
 - name: List files in /etc/sudoers.d
-  command: ls -1 /etc/sudoers.d
+  find:
+    paths: /etc/sudoers.d
+    patterns: "*"
   register: sudoers_contents
   changed_when: false
   when: purge_other_sudoers_files
 
+- name: "Set full path to /etc/sudoers.d/{{ sudo_sudoers_file }}"
+  set_fact:
+    sudo_sudoers_file_fullpath: "/etc/sudoers.d/{{ sudo_sudoers_file }}"
+  when: purge_other_sudoers_files
+
 - name: Remove unmanaged /etc/sudoers.d/ files
   file:
-    path: "/etc/sudoers.d/{{ item }}"
+    path: "{{ item.path }}"
     state: absent
-  with_items: "{{ sudoers_contents.stdout_lines }}"
+  loop: "{{ sudoers_contents.files }}"
+  loop_control:
+    label: "{{ item.path }}"
   when:
     - purge_other_sudoers_files
-    - item != sudo_sudoers_file
+    - item.path != sudo_sudoers_file_fullpath
