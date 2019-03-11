@@ -17,18 +17,15 @@
   changed_when: false
   when: purge_other_sudoers_files
 
-- name: "Set full path to /etc/sudoers.d/{{ sudo_sudoers_file }}"
-  set_fact:
-    sudo_sudoers_file_fullpath: "/etc/sudoers.d/{{ sudo_sudoers_file }}"
-  when: purge_other_sudoers_files
-
 - name: Remove unmanaged /etc/sudoers.d/ files
   file:
-    path: "{{ item.path }}"
+    path: "/etc/sudoers.d/{{ item.path|basename }}"
     state: absent
   loop: "{{ sudoers_contents.files }}"
   loop_control:
     label: "{{ item.path }}"
   when:
     - purge_other_sudoers_files
-    - item.path != sudo_sudoers_file_fullpath
+    - (item.path|basename) != sudo_sudoers_file
+
+...
