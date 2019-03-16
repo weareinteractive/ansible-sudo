@@ -1,3 +1,13 @@
+<a name="1.12.1"></a>
+### 1.12.1 (2019-03-16)
+
+
+#### Features
+
+*   add .ansible-lint ([5f1767a8](https://github.com/weareinteractive/ansible-sudo/commit/5f1767a886f5f48b5a79bc78988534358ace15f5))
+
+
+
 <a name="1.12.0"></a>
 ## 1.12.0 (2018-11-10)
 
