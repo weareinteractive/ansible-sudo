@@ -6,6 +6,9 @@ TEST_SYNTAX=ansible-playbook -v -i 'localhost,' -c local $(ROLE_PATH)/tests/main
 TEST_PLAYBOOK=ansible-playbook -vvvv -i 'localhost,' -c local $(ROLE_PATH)/tests/main.yml
 TEST_CMD=$(TEST_VERSION); $(TEST_SYNTAX); $(TEST_PLAYBOOK); $(TEST_PLAYBOOK)
 
+lint:
+	ansible-lint .
+
 ubuntu16.04: dist=ubuntu-16.04
 ubuntu16.04: .run
 
