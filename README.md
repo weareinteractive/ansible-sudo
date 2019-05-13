@@ -70,6 +70,8 @@ sudo_defaults: []
 sudo_sudoers_file: ansible
 # delete other files in /etc/sudoers.d/
 purge_other_sudoers_files: no
+# path of the sudoers.d directory
+sudo_sudoers_d_path: /etc/sudoers.d/
 
 ```
 
