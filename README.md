@@ -36,7 +36,7 @@ $ git clone https://github.com/weareinteractive/ansible-sudo.git weareinteractiv
 
 ## Dependencies
 
-* Ansible >= 2.4
+* Ansible >= 2.5
 
 ## Variables
 
@@ -109,7 +109,7 @@ This is an example playbook:
       - name: '%group4'
         users: 'user1,user2'
         groups: 'group1,group2'
-    purge_other_sudoers_files: no
+    purge_other_sudoers_files: yes
 
 ```
 
