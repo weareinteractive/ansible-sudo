@@ -27,5 +27,3 @@
   when:
     - purge_other_sudoers_files
     - (item.path|basename) != sudo_sudoers_file
-
-...
