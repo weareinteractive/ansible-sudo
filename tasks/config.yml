@@ -15,7 +15,7 @@
     patterns: "*"
   register: sudoers_contents
   changed_when: false
-  when: purge_other_sudoers_files
+  when: purge_other_sudoers_files | bool
 
 - name: Remove unmanaged /etc/sudoers.d/ files
   file:
@@ -25,5 +25,5 @@
   loop_control:
     label: "{{ item.path }}"
   when:
-    - purge_other_sudoers_files
+    - purge_other_sudoers_files | bool
     - (item.path|basename) != sudo_sudoers_file
