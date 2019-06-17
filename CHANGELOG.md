@@ -1,3 +1,13 @@
+<a name="1.13.0"></a>
+## 1.13.0 (2019-06-17)
+
+
+#### Features
+
+*   Allow setting sudoers directory path ([3ee4a068](https://github.com/weareinteractive/ansible-sudo/commit/3ee4a068b77d431dd75edabedc646fd5fa946c98))
+
+
+
 <a name="1.12.3"></a>
 ### 1.12.3 (2019-05-15)
 
