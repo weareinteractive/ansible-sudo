@@ -25,6 +25,9 @@ ubuntu14.04: .run
 debian%: TEST_DEPS=apt-get update && \
 	apt-get install -y python
 
+debian10: dist=debian-10
+debian10: .run
+
 debian9: dist=debian-9
 debian9: .run
 
