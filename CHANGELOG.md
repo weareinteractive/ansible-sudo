@@ -1,3 +1,13 @@
+<a name="1.13.1"></a>
+### 1.13.1 (2019-10-17)
+
+
+#### Bug Fixes
+
+*   add full path for visudo ([04e77cef](https://github.com/weareinteractive/ansible-sudo/commit/04e77cefcd6ead9d94f0a234fcc29b008f87aa7f))
+
+
+
 <a name="1.13.0"></a>
 ## 1.13.0 (2019-06-17)
 
