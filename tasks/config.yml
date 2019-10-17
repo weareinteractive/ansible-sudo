@@ -4,7 +4,7 @@
   template:
     src: "etc/sudoers.d/ansible.j2"
     dest: "{{ sudo_sudoers_d_path }}/{{ sudo_sudoers_file }}"
-    validate: "visudo -cf %s"
+    validate: "/usr/sbin/visudo -cf %s"
     owner: root
     group: "{{ sudo_sudoers_group }}"
     mode: "0440"
