@@ -27,3 +27,8 @@ sudo_sudoers_file: ansible
 sudo_sudoers_d_path: /etc/sudoers.d
 # delete other files in `sudo_sudoers_d_path`
 purge_other_sudoers_files: no
+
+
+runas_default: root    # must be a single word string
+hosts_default: ALL     # must be a single word string
+commands_default: ALL  

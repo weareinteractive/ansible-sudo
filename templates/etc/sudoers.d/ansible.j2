@@ -1,17 +1,60 @@
-# {{ ansible_managed }}
+# This file is {{ ansible_managed }}.  DO NOT EDIT!
+{% if my_sudoers.comment is defined %}
+# {{ my_sudoers.comment }}
+{% endif %}
 
-{% for item in sudo_defaults %}
-Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.defaults }}
-{% endfor %}
-
-{% for item in sudo_users %}
-{% if item.commands is not defined %}
-{{ item.name }} {{ item.hosts | default('ALL') }}={{ "(" ~ item.users | default('ALL') ~ ":" ~ item.groups | default('ALL') ~ ")" }} {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} ALL
-{% elif item.commands is string %}
-{{ item.name }} {{ item.hosts | default('ALL') }}={{ "(" ~ item.users | default('ALL') ~ ":" ~ item.groups | default('ALL') ~ ")" }} {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} {{ item.commands }}
+# Any conversion of dashes to underscores and/or removal of percent signs
+# in Alias definitions is to maintain compatibility with the sudoers Alias definitions.  
+# See `man sudoers` for more information.
+{% if my_sudoers.users is defined -%}
+{% set USERALIAS = my_sudoers.name|upper|replace('-','_')|replace('%','')+'_USERS' %}
+User_Alias {{ USERALIAS }} = 
+{%- if my_sudoers.users is string %}
+ {{ my_sudoers.users }}
 {% else %}
-{% for command in item.commands %}
-{{ item.name }} {{ item.hosts | default('ALL') }}={{ "(" ~ item.users | default('ALL') ~ ":" ~ item.groups | default('ALL') ~ ")" }} {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} {{ command }}
+ {{ my_sudoers.users|sort|join(', ') }}
+{% endif %}
+{% endif %}
+{% set HOSTALIAS = my_sudoers.name|upper|replace('-','_')|replace('%','')+'_HOSTS' %}
+Host_Alias {{ HOSTALIAS }} = 
+{%- if my_sudoers.hosts is string %}
+ {{ my_sudoers.hosts }}
+{% else %}
+ {{ my_sudoers.hosts|sort|join(', ') }}
+{% endif %}
+{% set CMNDALIAS = my_sudoers.name|upper|replace('-','_')|replace('%','')+'_CMNDS' %}
+Cmnd_Alias {{ CMNDALIAS }} = 
+{%- if my_sudoers.commands is defined %}
+{% if my_sudoers.commands is string %}
+ {{ my_sudoers.commands }}
+{% else %}
+ {{ my_sudoers.commands|join(', ') }}
+{% endif %}
+{% else %}
+{{ commands_default }}
+{% endif %}
+{% set RUNASALIAS = my_sudoers.name|upper|replace('-','_')|replace('%','')+'_RUNAS' %}
+Runas_Alias {{ RUNASALIAS }} = 
+{%- if my_sudoers.runas is defined %}
+{% if my_sudoers.runas is string %}
+{{ my_sudoers.runas }}
+{% else %}
+ {{ my_sudoers.runas|sort|join(', ') }}
+{% endif %}
+{% else %}
+ {{ runas_default }}
+{% endif %}
+
+{% if my_sudoers.users is defined %}
+# User Commands
+{{ USERALIAS }} {{ HOSTALIAS }} = ({{ RUNASALIAS }})
+{%- if my_sudoers.nopasswd is defined %} NOPASSWD:{% else %} PASSWD:{% endif %} {{ CMNDALIAS }}
+{% endif %}
+
+{% if my_sudoers.groups is defined %}
+# Group Commands
+{% for group in my_sudoers.groups %}
+%{{ group }} {{ HOSTALIAS }} = ({{ RUNASALIAS }})
+{%- if my_sudoers.nopasswd is defined %} NOPASSWD:{% else %} PASSWD:{% endif %} {{ CMNDALIAS }}
 {% endfor %}
 {% endif %}
-{% endfor %}
