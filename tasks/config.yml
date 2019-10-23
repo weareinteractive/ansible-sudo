@@ -3,11 +3,19 @@
 - name: "Creating sudoers configuration in {{ sudo_sudoers_d_path }}/{{ sudo_sudoers_file }}"
   template:
     src: "etc/sudoers.d/ansible.j2"
-    dest: "{{ sudo_sudoers_d_path }}/{{ sudo_sudoers_file }}"
-    validate: "/usr/sbin/visudo -cf %s"
+    dest: "{{ sudo_sudoers_d_path }}/{{ my_sudoers.name }}"
+    validate: "visudo -cf %s"
     owner: root
     group: "{{ sudo_sudoers_group }}"
     mode: "0440"
+  loop: "{{ sudo_users }}"
+  loop_control:
+    loop_var: my_sudoers
+
+- name: Build a list of the file names that we don't want to delete.
+  set_fact:
+    sudo_keep: "{{ sudo_keep | default([]) | union([item.name]) }}"
+  loop: "{{ sudo }}"
 
 - name: "List files in {{ sudo_sudoers_d_path }}"
   find:
@@ -26,4 +34,4 @@
     label: "{{ item.path }}"
   when:
     - purge_other_sudoers_files | bool
-    - (item.path|basename) != sudo_sudoers_file
+    - (item.path|basename) not in sudo_keep
