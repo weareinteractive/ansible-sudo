@@ -1,3 +1,4 @@
 ---
 sudo_pkg_mgr_opts: update_cache=yes
 sudo_sudoers_group: root
+sudo_visudo: '/usr/sbin/visudo'
