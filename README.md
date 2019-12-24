@@ -58,7 +58,8 @@ Here is a list of all the default variables for this role, which are also availa
 #    commands:
 #      - /bin/ls
 #      - /bin/df
-#
+#  - name: '%group4'
+#    hosts: 127.0.0.1
 
 # package name (version)
 sudo_package: sudo
