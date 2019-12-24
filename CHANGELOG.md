@@ -1,3 +1,13 @@
+<a name="1.14.0"></a>
+## 1.14.0 (2019-12-24)
+
+
+#### Features
+
+*   add os specific visudo path Merge branch 'thalunil-openbsd' ([4515d663](https://github.com/weareinteractive/ansible-sudo/commit/4515d6632b648898f9422cce65caa7489e4813b5))
+
+
+
 <a name="1.13.1"></a>
 ### 1.13.1 (2019-10-17)
 
