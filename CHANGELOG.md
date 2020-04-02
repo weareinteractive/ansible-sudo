@@ -1,3 +1,13 @@
+<a name="1.14.1"></a>
+### 1.14.1 (2020-04-02)
+
+
+#### Bug Fixes
+
+*   case sensitive FreeBSD and visudo path ([c0b79a34](https://github.com/weareinteractive/ansible-sudo/commit/c0b79a3418820b8b1cc48e26604150d5eebc7652))
+
+
+
 <a name="1.14.0"></a>
 ## 1.14.0 (2019-12-24)
 
