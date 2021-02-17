@@ -1,12 +1,5 @@
 ---
 
-- import_tasks: vars.yml
-  tags:
-    - system
-    - sudo
-    - vars
-    - sudo-vars
-
 - import_tasks: install.yml
   tags:
     - system

@@ -1,0 +1,21 @@
+---
+_sudo_pkg_mgr_opts:
+  default: update_cache=yes
+  FreeBSD: ''
+  OpenBSD: ''
+
+sudo_pkg_mgr_opts: "{{ _sudo_pkg_mgr_opts[ansible_os_family] | default(_sudo_pkg_mgr_opts['default']) }}"
+
+_sudo_sudoers_group:
+  default: root
+  FreeBSD: wheel
+  OpenBSD: wheel
+
+sudo_sudoers_group: "{{ _sudo_sudoers_group[ansible_os_family] | default(_sudo_sudoers_group['default']) }}"
+
+_sudo_visudo:
+  default: '/usr/sbin/visudo'
+  FreeBSD: '/usr/local/sbin/visudo'
+  OpenBSD: '/usr/local/sbin/visudo'
+
+sudo_visudo: "{{ _sudo_visudo[ansible_os_family] | default(_sudo_visudo['default']) }}"
