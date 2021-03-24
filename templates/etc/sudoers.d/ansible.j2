@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 
 {% for item in sudo_defaults %}
 Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.defaults }}
