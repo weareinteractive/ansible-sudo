@@ -23,6 +23,12 @@
         defaults: 'requiretty'
       - name: '%group1'
         defaults: '!requiretty'
+      - name: PAGER
+        defaults: noexec
+        type: cmnd
+      - name: root
+        defaults: '!set_logname'
+        type: runas
     sudo_users:
       - name: 'user1'
       - name: 'user2'

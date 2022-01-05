@@ -18,7 +18,18 @@ Cmnd_Alias {{ key }} = {{ value if value is string else value | join(', ') }}
 {% endif %}
 
 {% for item in sudo_defaults %}
-Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.defaults }}
+{% if item.name is defined %}
+{% set defaulttype = item.type|default('user') %}
+{% if defaulttype == 'user' %}
+Defaults:{{ item.name }} {{ item.defaults }}
+{% elif defaulttype == 'cmnd' %}
+Defaults!{{ item.name }} {{ item.defaults }}
+{% elif defaulttype == 'runas' %}
+Defaults>{{ item.name }} {{ item.defaults }}
+{% endif %}
+{% else %}
+Defaults {{ item.defaults }}
+{% endif %}
 {% endfor %}
 
 {% for item in sudo_users %}

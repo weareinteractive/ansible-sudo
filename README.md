@@ -118,8 +118,15 @@ This is an example playbook:
       - defaults: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       - name: 'user1'
         defaults: 'requiretty'
+        #type: user
       - name: '%group1'
         defaults: '!requiretty'
+      - name: PAGER
+        defaults: noexec
+        type: cmnd
+      - name: root
+        defaults: '!set_logname'
+        type: runas
     sudo_users:
       - name: 'user1'
       - name: 'user2'
