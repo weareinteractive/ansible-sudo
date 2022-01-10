@@ -9,7 +9,7 @@
     group: "{{ sudo_sudoers_group }}"
     mode: "0440"
 
-- name: "Creating sudoers configuration in {{ sudo_sudoers_d_path }}/{{ item }}"
+- name: "Creating additional sudoers configurations"
   vars:
     sudo_sudoers_user_aliases: "{{ lookup('vars', 'sudo_sudoers_user_aliases_' + item, default='') }}"
     sudo_sudoers_runas_aliases: "{{ lookup('vars', 'sudo_sudoers_runas_aliases_' + item, default='') }}"
