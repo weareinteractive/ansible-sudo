@@ -1,7 +1,35 @@
 {{ ansible_managed | comment }}
 
+{{ sudo_aliases_comment | comment }}
+{% if sudo_sudoers_users_aliases is mapping %}
+{% for key, value in sudo_sudoers_user_aliases.items() %}
+User_Alias {{ key }} = {{ value if value is string else value | join(', ') }}
+{% endfor %}
+{% endif %}
+{% if sudo_sudoers_runas_aliases is mapping %}
+{% for key, value in sudo_sudoers_runas_aliases.items() %}
+Runas_Alias {{ key }} = {{ value if value is string else value | join(', ') }}
+{% endfor %}
+{% endif %}
+{% if sudo_sudoers_cmnd_aliases is mapping %}
+{% for key, value in sudo_sudoers_cmnd_aliases.items() %}
+Cmnd_Alias {{ key }} = {{ value if value is string else value | join(', ') }}
+{% endfor %}
+{% endif %}
+
 {% for item in sudo_defaults %}
-Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.defaults }}
+{% if item.name is defined %}
+{% set defaulttype = item.type|default('user') %}
+{% if defaulttype == 'user' %}
+Defaults:{{ item.name }} {{ item.defaults }}
+{% elif defaulttype == 'cmnd' %}
+Defaults!{{ item.name }} {{ item.defaults }}
+{% elif defaulttype == 'runas' %}
+Defaults>{{ item.name }} {{ item.defaults }}
+{% endif %}
+{% else %}
+Defaults {{ item.defaults }}
+{% endif %}
 {% endfor %}
 
 {% for item in sudo_users %}

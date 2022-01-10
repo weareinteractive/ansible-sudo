@@ -1,4 +1,17 @@
 ---
+# sudo_sudoers_user_aliases:
+#  WEBADMINS:
+#    - webadmin1
+#    - webadmin2
+# sudo_sudoers_cmnd_aliases:
+#  WEBCOMMANDS:
+#    - /bin/systemctl status nginx
+#    - /bin/systemctl start nginx
+#    - /bin/systemctl stop nginx
+#    - /bin/systemctl restart nginx
+#  PACKAGECOMMANDS: '/bin/apt, /bin/yum'
+# sudo_sudoers_runas_aliases:
+#  WEBUSERS: 'www-data, www'
 # sudo_defaults:
 #  - defaults: env_reset
 #  - name: user1
@@ -15,6 +28,10 @@
 #      - /bin/df
 #  - name: '%group4'
 #    hosts: 127.0.0.1
+#  - name: WEBADMINS
+#    commands: WEBCOMMANDS
+#    users: WEBUSERS
+#    groups: WEBUSERS
 
 # package name (version)
 sudo_package: sudo
@@ -22,6 +39,12 @@ sudo_package: sudo
 sudo_users: []
 # list of username or %groupname and their defaults
 sudo_defaults: []
+# dictionary of user alias definition
+sudo_sudoers_user_aliases: []
+# dictionary of cmnd alias definition
+sudo_sudoers_cmnd_aliases: []
+# dictionary of runas alias definition
+sudo_sudoers_runas_aliases: []
 # default sudoers file
 sudo_sudoers_file: ansible
 # path of the sudoers.d directory
