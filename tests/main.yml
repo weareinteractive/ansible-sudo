@@ -29,3 +29,8 @@
         users: 'user1,user2'
         groups: 'group1,group2'
     purge_other_sudoers_files: yes
+
+    sudo_sudoers_additional_files:
+      - web
+    sudo_users_web:
+      - name: 'webuser1'
