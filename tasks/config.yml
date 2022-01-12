@@ -9,6 +9,24 @@
     group: "{{ sudo_sudoers_group }}"
     mode: "0440"
 
+- name: "Creating additional sudoers configurations"
+  vars:
+    sudo_sudoers_user_aliases: "{{ lookup('vars', 'sudo_sudoers_user_aliases_' + item, default='') }}"
+    sudo_sudoers_runas_aliases: "{{ lookup('vars', 'sudo_sudoers_runas_aliases_' + item, default='') }}"
+    sudo_sudoers_cmnd_aliases: "{{ lookup('vars', 'sudo_sudoers_cmnd_aliases_' + item, default='') }}"
+    sudo_defaults: "{{ lookup('vars', 'sudo_defaults_' + item, default='') }}"
+    sudo_users: "{{ lookup('vars', 'sudo_users_' + item, default='') }}"
+  template:
+    src: "etc/sudoers.d/ansible.j2"
+    dest: "{{ sudo_sudoers_d_path }}/{{ item }}"
+    validate: "{{ sudo_visudo }} -cf %s"
+    owner: root
+    group: "{{ sudo_sudoers_group }}"
+    mode: "0440"
+  loop: "{{ sudo_sudoers_additional_files | list }}"
+  when:
+    - (sudo_sudoers_additional_files | length > 0)
+
 - name: "List files in {{ sudo_sudoers_d_path }}"
   find:
     paths: "{{ sudo_sudoers_d_path }}"
@@ -27,3 +45,4 @@
   when:
     - purge_other_sudoers_files | bool
     - (item.path|basename) != sudo_sudoers_file
+    - (item.path|basename) not in sudo_sudoers_additional_files

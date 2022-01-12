@@ -24,6 +24,8 @@ sudo_users: []
 sudo_defaults: []
 # default sudoers file
 sudo_sudoers_file: ansible
+# list for additional sudoers files
+sudo_sudoers_additional_files: []
 # path of the sudoers.d directory
 sudo_sudoers_d_path: /etc/sudoers.d
 # delete other files in `sudo_sudoers_d_path`

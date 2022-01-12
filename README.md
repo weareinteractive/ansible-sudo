@@ -69,6 +69,8 @@ sudo_users: []
 sudo_defaults: []
 # default sudoers file
 sudo_sudoers_file: ansible
+# list for additional sudoers files
+sudo_sudoers_additional_files: []
 # path of the sudoers.d directory
 sudo_sudoers_d_path: /etc/sudoers.d
 # delete other files in `sudo_sudoers_d_path`
@@ -114,8 +116,14 @@ This is an example playbook:
         groups: 'group1,group2'
     purge_other_sudoers_files: yes
 
-```
+    sudo_sudoers_additional_files:
+      - web
+    sudo_users_web:
+      - name: 'webuser1'
 
+```
+If you are going to make use of sudo_sudoers_additional_files then all the other variables are available like before, but you have to suffix them with the filename.
+This is like in the upper example the name `web`.
 
 ## Testing
 
