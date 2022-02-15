@@ -1,7 +1,7 @@
 {{ ansible_managed | comment }}
 
 {{ sudo_aliases_comment | comment }}
-{% if sudo_sudoers_users_aliases is mapping %}
+{% if sudo_sudoers_user_aliases is mapping %}
 {% for key, value in sudo_sudoers_user_aliases.items() %}
 User_Alias {{ key }} = {{ value if value is string else value | join(', ') }}
 {% endfor %}
