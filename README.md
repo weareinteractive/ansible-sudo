@@ -44,6 +44,17 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```yaml
 ---
+# sudo_sudoers_user_aliases:
+#  WEBADMINS:
+#    - webadmin1
+#    - webadmin2
+# sudo_sudoers_cmnd_aliases:
+#  WEBCOMMANDS:
+#    - /bin/systemctl status nginx
+#    - /bin/systemctl start nginx
+#    - /bin/systemctl stop nginx
+#    - /bin/systemctl restart nginx
+#  PACKAGECOMMANDS: '/bin/apt, /bin/yum'
 # sudo_defaults:
 #  - defaults: env_reset
 #  - name: user1
@@ -89,6 +100,19 @@ This is an example playbook:
   roles:
     - weareinteractive.sudo
   vars:
+    sudo_sudoers_user_aliases:
+      WEBADMINS:
+        - webadmin1
+        - webadmin2
+    sudo_sudoers_runas_aliases:
+      WEBUSERS: 'www-data, www'
+    sudo_sudoers_cmnd_aliases:
+      WEBCOMMANDS:
+        - /bin/systemctl status nginx
+        - /bin/systemctl start nginx
+        - /bin/systemctl stop nginx
+        - /bin/systemctl restart nginx
+      PACKAGECOMMANDS: '/bin/apt, /bin/yum'
     sudo_defaults:
       - defaults: env_reset
       - defaults: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -112,6 +136,10 @@ This is an example playbook:
       - name: '%group4'
         users: 'user1,user2'
         groups: 'group1,group2'
+      - name: WEBADMINS
+        commands: WEBCOMMANDS
+        users: WEBUSERS
+        groups: WEBUSERS
     purge_other_sudoers_files: yes
 
 ```
