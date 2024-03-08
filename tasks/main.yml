@@ -1,20 +1,23 @@
 ---
 
-- import_tasks: vars.yml
+- name: Import vars.yml
+  ansible.builtin.import_tasks: vars.yml
   tags:
     - system
     - sudo
     - vars
     - sudo-vars
 
-- import_tasks: install.yml
+- name: Import install.yml
+  ansible.builtin.import_tasks: install.yml
   tags:
     - system
     - sudo
     - install
     - sudo-install
 
-- import_tasks: config.yml
+- name: Import config.yml
+  ansible.builtin.import_tasks: config.yml
   tags:
     - system
     - sudo

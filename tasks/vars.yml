@@ -1,7 +1,7 @@
 ---
 
-- name: Including variables for distribution
-  include_vars: "{{ item }}"
+- name: Include variables for distribution
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - "{{ ansible_distribution }}.yml"
     - "{{ ansible_os_family }}.yml"

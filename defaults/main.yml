@@ -27,4 +27,4 @@ sudo_sudoers_file: ansible
 # path of the sudoers.d directory
 sudo_sudoers_d_path: /etc/sudoers.d
 # delete other files in `sudo_sudoers_d_path`
-purge_other_sudoers_files: no
+purge_other_sudoers_files: false

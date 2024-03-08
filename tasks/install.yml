@@ -1,6 +1,6 @@
 ---
 
 - name: Installing package
-  package:
+  ansible.builtin.package:
     name: "{{ sudo_package }}"
     state: present
