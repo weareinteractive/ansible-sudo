@@ -1,16 +1,16 @@
 ---
-galaxy_name: weareinteractive.sudo
-github_user: weareinteractive
-github_name: ansible-sudo
+galaxy_name: axemann.sudo
+github_user: axemann
+github_name: ansible-role-sudo
 badges: |
-  [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sudo.svg)](https://travis-ci.org/weareinteractive/ansible-sudo)
-  [![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.sudo-blue.svg)](https://galaxy.ansible.com/weareinteractive/users)
-  [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
-  [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
+  [![Build Status](https://img.shields.io/travis/axemann/ansible-role-sudo.svg)](https://travis-ci.org/axemann/ansible-role-sudo)
+  [![Galaxy](http://img.shields.io/badge/galaxy-axemann.sudo-blue.svg)](https://galaxy.ansible.com/axemann/users)
+  [![GitHub Tags](https://img.shields.io/github/tag/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
+  [![GitHub Stars](https://img.shields.io/github/stars/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
 description: |
   > * installs sudo
   > * configures sudo
 
   **Note:**
 
-  > Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sudo` to `weareinteractive.sudo`!
+  > Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sudo` to `axemann.sudo`!

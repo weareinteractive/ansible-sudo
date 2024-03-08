@@ -3,7 +3,7 @@
 - hosts: all
   become: yes
   roles:
-    - weareinteractive.sudo
+    - axemann.sudo
   vars:
     sudo_defaults:
       - defaults: env_reset
