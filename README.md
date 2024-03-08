@@ -1,7 +1,7 @@
 # Ansible axemann.sudo role
 
-[![Build Status](https://img.shields.io/travis/axemann/ansible-role-sudo.svg)](https://travis-ci.org/axemann/ansible-role-sudo)
-[![Galaxy](http://img.shields.io/badge/galaxy-axemann.sudo-blue.svg)](https://galaxy.ansible.com/axemann/users)
+[![Build Status](https://img.shields.io/travis/com/axemann/ansible-role-sudo.svg)](https://travis-ci.org/axemann/ansible-role-sudo)
+[![Galaxy](https://img.shields.io/badge/galaxy-axemann.sudo-blue.svg)](https://galaxy.ansible.com/ui/standalone/namespaces/13554)
 [![GitHub Tags](https://img.shields.io/github/tag/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
 [![GitHub Stars](https://img.shields.io/github/stars/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
 
@@ -72,7 +72,7 @@ sudo_sudoers_file: ansible
 # path of the sudoers.d directory
 sudo_sudoers_d_path: /etc/sudoers.d
 # delete other files in `sudo_sudoers_d_path`
-purge_other_sudoers_files: no
+purge_other_sudoers_files: false
 
 ```
 
@@ -142,4 +142,4 @@ ansible-role docgen
 
 ## License
 
-Copyright (c) We Are Interactive under the MIT license.
+Copyright (c)  under the MIT license.
