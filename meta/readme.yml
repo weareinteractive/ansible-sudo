@@ -3,8 +3,8 @@ galaxy_name: axemann.sudo
 github_user: axemann
 github_name: ansible-role-sudo
 badges: |
-  [![Build Status](https://img.shields.io/travis/axemann/ansible-role-sudo.svg)](https://travis-ci.org/axemann/ansible-role-sudo)
-  [![Galaxy](http://img.shields.io/badge/galaxy-axemann.sudo-blue.svg)](https://galaxy.ansible.com/axemann/users)
+  [![Build Status](https://img.shields.io/travis/com/axemann/ansible-role-sudo.svg)](https://travis-ci.org/axemann/ansible-role-sudo)
+  [![Galaxy](https://img.shields.io/badge/galaxy-axemann.sudo-blue.svg)](https://galaxy.ansible.com/ui/standalone/namespaces/13554)
   [![GitHub Tags](https://img.shields.io/github/tag/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
   [![GitHub Stars](https://img.shields.io/github/stars/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
 description: |
