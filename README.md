@@ -1,37 +1,37 @@
-# Ansible weareinteractive.sudo role
+# Ansible axemann.sudo role
 
-[![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sudo.svg)](https://travis-ci.org/weareinteractive/ansible-sudo)
-[![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.sudo-blue.svg)](https://galaxy.ansible.com/weareinteractive/users)
-[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
-[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sudo.svg)](https://github.com/weareinteractive/ansible-sudo)
+[![Build Status](https://img.shields.io/travis/axemann/ansible-role-sudo.svg)](https://travis-ci.org/axemann/ansible-role-sudo)
+[![Galaxy](http://img.shields.io/badge/galaxy-axemann.sudo-blue.svg)](https://galaxy.ansible.com/axemann/users)
+[![GitHub Tags](https://img.shields.io/github/tag/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
+[![GitHub Stars](https://img.shields.io/github/stars/axemann/ansible-role-sudo.svg)](https://github.com/axemann/ansible-role-sudo)
 
-> `weareinteractive.sudo` is an [Ansible](http://www.ansible.com) role which:
+> `axemann.sudo` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs sudo
 > * configures sudo
 
 **Note:**
 
-> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sudo` to `weareinteractive.sudo`!
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sudo` to `axemann.sudo`!
 
 ## Installation
 
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install weareinteractive.sudo
+ansible-galaxy install axemann.sudo
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: weareinteractive.sudo
+- src: axemann.sudo
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-sudo.git weareinteractive.sudo
+git clone https://github.com/axemann/ansible-role-sudo.git axemann.sudo
 ```
 
 ## Dependencies
@@ -76,7 +76,6 @@ purge_other_sudoers_files: no
 
 ```
 
-
 ## Usage
 
 This is an example playbook:
@@ -87,7 +86,7 @@ This is an example playbook:
 - hosts: all
   become: yes
   roles:
-    - weareinteractive.sudo
+    - axemann.sudo
   vars:
     sudo_defaults:
       - defaults: env_reset
@@ -116,16 +115,16 @@ This is an example playbook:
 
 ```
 
-
 ## Testing
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-sudo.git
-$ cd ansible-sudo
-$ make test
+git clone https://github.com/axemann/ansible-role-sudo.git
+cd ansible-role-sudo
+make test
 ```
 
 ## Contributing
+
 In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
 
 1. Fork it
@@ -137,9 +136,10 @@ In lieu of a formal style guide, take care to maintain the existing coding style
 *Note: To update the `README.md` file please install and run `ansible-role`:*
 
 ```shell
-$ gem install ansible-role
-$ ansible-role docgen
+gem install ansible-role
+ansible-role docgen
 ```
 
 ## License
+
 Copyright (c) We Are Interactive under the MIT license.

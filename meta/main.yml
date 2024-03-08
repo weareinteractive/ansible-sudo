@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: franklin <franklin@weareinteractive.com>
+  author: franklin <franklin@axemann.com>
   company: We Are Interactive
   description: Installs and configures sudo
   min_ansible_version: 2.5

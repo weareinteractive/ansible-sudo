@@ -1,5 +1,5 @@
 PWD=$(shell pwd)
-ROLE_NAME=weareinteractive.sudo
+ROLE_NAME=axemann.sudo
 ROLE_PATH=/etc/ansible/roles/$(ROLE_NAME)
 TEST_VERSION=ansible --version
 TEST_SYNTAX=ansible-playbook -v -i 'localhost,' -c local $(ROLE_PATH)/tests/main.yml --syntax-check
