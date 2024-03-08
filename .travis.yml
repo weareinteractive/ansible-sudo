@@ -5,37 +5,41 @@ services:
   - docker
 env:
   global:
-    - role: weareinteractive.sudo
+    - role=axemann.sudo
   matrix:
-    - distribution: Ubuntu
-      distribution_version: "18.04"
-      init: /lib/systemd/systemd
-      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    - distribution: Ubuntu
-      distribution_version: "16.04"
-      init: /lib/systemd/systemd
-      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    - distribution: Ubuntu
-      distribution_version: "14.04"
-      init: /sbin/init
-      run_opts: ""
-    - distribution: Debian
-      distribution_version: "9"
-      init: /lib/systemd/systemd
-      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    - distribution: Debian
-      distribution_version: "8"
-      init: /lib/systemd/systemd
-      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    - distribution: EL
-      distribution_version: "7"
-      init: /usr/lib/systemd/systemd
-      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    - distribution: Centos
-      distribution_version: "7"
-      init: /lib/systemd/systemd
-      run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
-      before_test: "'yum makecache && yum install -y openssh-clients'"
+    - distribution=ubuntu
+      distribution_version="22.04"
+      init=/lib/systemd/systemd
+      run_opts="--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    # - distribution: Ubuntu
+    #   distribution_version: "18.04"
+    #   init: /lib/systemd/systemd
+    #   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    # - distribution: Ubuntu
+    #   distribution_version: "16.04"
+    #   init: /lib/systemd/systemd
+    #   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    # - distribution: Ubuntu
+    #   distribution_version: "14.04"
+    #   init: /sbin/init
+    #   run_opts: ""
+    # - distribution: Debian
+    #   distribution_version: "9"
+    #   init: /lib/systemd/systemd
+    #   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    # - distribution: Debian
+    #   distribution_version: "8"
+    #   init: /lib/systemd/systemd
+    #   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    # - distribution: EL
+    #   distribution_version: "7"
+    #   init: /usr/lib/systemd/systemd
+    #   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    # - distribution: Centos
+    #   distribution_version: "7"
+    #   init: /lib/systemd/systemd
+    #   run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
+    #   before_test: "'yum makecache && yum install -y openssh-clients'"
 
 before_install:
   - sudo apt-get update
